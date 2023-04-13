@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+
+  db:
+    image: mysql/mysql-server
+    container_name: db_muzikaloid
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: password_here
+      MYSQL_DATABASE: app_db
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: password_here
+    volumes:
+      - ./mysql:/var/lib/mysql
+    ports:
+      - "3317:3306" #outside:inside docker container from-within
